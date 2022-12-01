@@ -15,6 +15,8 @@ def giveTimeStamp():
 
 
 def generateUnitTest(algo, attack_type):
+  logger.info(f"generateUnitTest({algo}, {attack_type})")
+    try:
     file_name = "../../output/attack_unit_test/test_attack_" + algo + ".py"
     with open(file_name,"w+") as file:
         file.write("import unittest\n")
@@ -32,7 +34,9 @@ def generateUnitTest(algo, attack_type):
         if (attack_type == 'prob'):
             file.write("\t\tprecision4model2, recall4model2, fscore4model2, auc4model2 = label_perturbation_main.run_prob_based_perturbation_experiment(change_unit, 10, 10, "+ "algo" + ")\n")
         file.write("\t\tself.assertEqual(auc4model1, auc4model2, \"DECREASE IN AUC VALUE ... POSSIBLE ATTACK?\"  )\n")
-
+  except Exception as exc:
+        logger.error(f"generateUnitTest({algo}, {attack_type}) FAILURE {exc}")
+        raise exc
 
 def generateAttack(inp_dir, delta):
     if os.path.exists(inp_dir):
