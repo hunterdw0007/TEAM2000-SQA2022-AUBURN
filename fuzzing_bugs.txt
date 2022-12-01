@@ -1,0 +1,215 @@
+C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN>py fuzz.py
+2022-12-01 17:01:38.899900: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-12-01 17:01:38.900148: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+Fuzz: checkTestFile FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+TypeError: detect_test.checkTestFile() argument after * must be an iterable, not NoneType
+Fuzz: checkTestFile FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+TypeError: checkTestFile() takes 1 positional argument but 11 were given
+Fuzz: checkTestFile FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+TypeError: detect_test.checkTestFile() argument after * must be an iterable, not float
+Fuzz: checkTestFile FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\detect_test.py", line 31, in checkTestFile
+    if(not (repo in repo_test_dict)):
+UnboundLocalError: local variable 'repo' referenced before assignment
+Fuzz: calculate_k FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\attack_model.py", line 26, in calculate_k
+    model.fit(X_train, y_train)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\neighbors\_classification.py", line 207, in fit
+    return self._fit(X, y)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\neighbors\_base.py", line 407, in _fit
+    X, y = self._validate_data(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 563, in _validate_data
+    raise ValueError(
+ValueError: This KNeighborsClassifier estimator requires y to be passed, but the target y is None.
+Fuzz: calculate_k FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\attack_model.py", line 26, in calculate_k
+    model.fit(X_train, y_train)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\neighbors\_classification.py", line 207, in fit
+    return self._fit(X, y)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\neighbors\_base.py", line 407, in _fit
+    X, y = self._validate_data(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 596, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 1074, in check_X_y
+    X = check_array(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 871, in check_array
+    raise ValueError(
+ValueError: Expected 2D array, got scalar array instead:
+array=false.
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+Fuzz: calculate_k FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\attack_model.py", line 26, in calculate_k
+    model.fit(X_train, y_train)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\neighbors\_classification.py", line 207, in fit
+    return self._fit(X, y)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\neighbors\_base.py", line 407, in _fit
+    X, y = self._validate_data(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 596, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 1074, in check_X_y
+    X = check_array(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 871, in check_array
+    raise ValueError(
+ValueError: Expected 2D array, got scalar array instead:
+array=1.0.
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+Fuzz: calculate_k FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\attack_model.py", line 26, in calculate_k
+    model.fit(X_train, y_train)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\neighbors\_classification.py", line 207, in fit
+    return self._fit(X, y)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\neighbors\_base.py", line 407, in _fit
+    X, y = self._validate_data(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 596, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 1074, in check_X_y
+    X = check_array(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 871, in check_array
+    raise ValueError(
+ValueError: Expected 2D array, got scalar array instead:
+array=,.
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+else
+Fuzz: perform_inference FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\attack_model.py", line 82, in perform_inference
+    model.fit(X_train, y_train)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\tree\_classes.py", line 969, in fit
+    super().fit(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\tree\_classes.py", line 172, in fit
+    X, y = self._validate_data(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 563, in _validate_data
+    raise ValueError(
+ValueError: This DecisionTreeClassifier estimator requires y to be passed, but the target y is None.
+else
+Fuzz: perform_inference FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\attack_model.py", line 82, in perform_inference
+    model.fit(X_train, y_train)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\tree\_classes.py", line 969, in fit
+    super().fit(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\tree\_classes.py", line 172, in fit
+    X, y = self._validate_data(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 591, in _validate_data
+    X = check_array(X, input_name="X", **check_X_params)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 856, in check_array
+    array = np.asarray(array, order=order, dtype=dtype)
+ValueError: could not convert string to float: 'false'
+else
+Fuzz: perform_inference FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\attack_model.py", line 82, in perform_inference
+    model.fit(X_train, y_train)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\tree\_classes.py", line 969, in fit
+    super().fit(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\tree\_classes.py", line 172, in fit
+    X, y = self._validate_data(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 591, in _validate_data
+    X = check_array(X, input_name="X", **check_X_params)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 871, in check_array
+    raise ValueError(
+ValueError: Expected 2D array, got scalar array instead:
+array=1.0.
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+else
+Fuzz: perform_inference FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\attack_model.py", line 82, in perform_inference
+    model.fit(X_train, y_train)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\tree\_classes.py", line 969, in fit
+    super().fit(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\tree\_classes.py", line 172, in fit
+    X, y = self._validate_data(
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 591, in _validate_data
+    X = check_array(X, input_name="X", **check_X_params)
+  File "C:\Users\tiffj\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 856, in check_array
+    array = np.asarray(array, order=order, dtype=dtype)
+ValueError: could not convert string to float: ';'
+Fuzz: label_flip_perturbation FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\loss_based_label_perturbation.py", line 9, in label_flip_perturbation
+    p = int(y_train.size * change_unit)
+AttributeError: 'NoneType' object has no attribute 'size'
+Fuzz: label_flip_perturbation FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\loss_based_label_perturbation.py", line 9, in label_flip_perturbation
+    p = int(y_train.size * change_unit)
+AttributeError: 'str' object has no attribute 'size'
+Fuzz: label_flip_perturbation FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\loss_based_label_perturbation.py", line 9, in label_flip_perturbation
+    p = int(y_train.size * change_unit)
+AttributeError: 'float' object has no attribute 'size'
+Fuzz: label_flip_perturbation FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\loss_based_label_perturbation.py", line 9, in label_flip_perturbation
+    p = int(y_train.size * change_unit)
+AttributeError: 'str' object has no attribute 'size'
+Fuzz: generate_malicious_instance FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\probability_based_label_perturbation.py", line 10, in generate_malicious_instance
+    M = X_train.shape[1]
+AttributeError: 'NoneType' object has no attribute 'shape'
+Fuzz: generate_malicious_instance FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\probability_based_label_perturbation.py", line 10, in generate_malicious_instance
+    M = X_train.shape[1]
+AttributeError: 'str' object has no attribute 'shape'
+Fuzz: generate_malicious_instance FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\probability_based_label_perturbation.py", line 10, in generate_malicious_instance
+    M = X_train.shape[1]
+AttributeError: 'float' object has no attribute 'shape'
+Fuzz: generate_malicious_instance FAIL
+Traceback (most recent call last):
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\fuzz.py", line 11, in fuzz
+    result = method(*arguments)
+  File "C:\Users\tiffj\continuous-secsoft\TEAM2000-SQA2022-AUBURN\generation\probability_based_label_perturbation.py", line 10, in generate_malicious_instance
+    M = X_train.shape[1]
+AttributeError: 'str' object has no attribute 'shape'

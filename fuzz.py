@@ -1,9 +1,9 @@
 import traceback
 from typing import Any, List
-
-from detection.main import chackAttackTest
-from generation.main import generateUnitTest, generateAttack
-from label_perturbation_attack.main import run_random_perturbation_experiment, call_prob
+from detect_test import checkTestFile
+from generation.attack_model import calculate_k, perform_inference
+from generation.loss_based_label_perturbation import label_flip_perturbation
+from generation.probability_based_label_perturbation import generate_malicious_instance
 
 def fuzz(method, fuzzed_arguments: List[Any]):
     for arguments in fuzzed_arguments:
@@ -18,53 +18,43 @@ def fuzz(method, fuzzed_arguments: List[Any]):
 if __name__ == "__main__":
     fuzz_targets = [
         (
-            chackAttackTest, [
-                (None, None),
-                ("wro", "rig"),
-                (0, 1),
-                ({}, {}),
-                (5.0, 6.0),
-                ('L7812', None)
+            checkTestFile, [
+                (None),
+                ('falsestring'),
+                (1.0),
+                ('/')
             ]
         ),
         (
-            generateUnitTest, [
-                (None, None),
-                ('lam', 'hci'),
-                (87, 65),
-                ([], {}),
-                (0.0, 0.0),
-                (None, 'ht.lm')
+            calculate_k, [
+                (None, None, None, None),
+                ('false', 'string', 'no', 'use'),
+                (1.0, 2.0, 3.0, 4.0),
+                (',', '?', '.', '!')
             ]
         ),
         (
-            generateAttack, [
-                (None, None),
-                ('lef', 'rig'),
-                (2, 3),
-                ([], []),
-                (0.9, 0.8),
-                ('/', None)
+            perform_inference, [
+                (None, None, None, None, None),
+                ('false', 'string', 'no', 'good', 'use'),
+                (1.0, 2.0, 3.0, 4.0, 5.0),
+                (';', ':', '&', '*', '(')
             ]
         ),
         (
-            run_random_perturbation_experiment, [
-                (None, None),
-                ('aub', 'ari'),
-                (9, 8),
-                ({}, []),
-                (2.3, 4.5),
-                ('?', None)
+            label_flip_perturbation, [
+                (None, None, None, None, None, None, None),
+                ('no', 'good', 'use', 'false', 'string', 'fake', 'here'),
+                (1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0),
+                ('[', ']', '{', '}', '#', '@', '$')
             ]
         ),
         (
-            call_prob, [
+            generate_malicious_instance, [
                 (None, None, None),
-                ('bie', 'pie', 'rit'),
-                (5, 6, 7),
-                ("", ".", ","),
-                ([], [], []),
-                (';', None)
+                ('bad', 'string', 'use'),
+                (1.0, 2.0, 3.0),
+                ('=', '+', '-')
             ]
         )
     ]
