@@ -59,37 +59,45 @@ def draw_plot(change, initial, random, loss, prob, plot_type):
     return plt
     
 def call_loss(model_name):
-    for change_percentage in range(0,90,10):
-        change_unit = change_percentage/100
-        print("Change: ", change_unit)  
-        print('*'*100 )
-        print("Loss based Perturbation")
-        start_time = time.time()
-        I = 10
-        g = 10
-        precision, recall, fscore, auc = run_loss_based_perturbation_experiment(change_unit, model_name)
-        end_time = time.time()
-        time_needed = round( (end_time - start_time) / 60, 5)
-        if(auc <= 0.5):
-            return precision, recall, fscore, auc, time_needed, change_unit
-    return precision, recall, fscore, auc, time_needed, change_unit
-    
+    logger.info(f"call_loss({model_name})")
+    try:
+        for change_percentage in range(0,90,10):
+            change_unit = change_percentage/100
+            print("Change: ", change_unit)  
+            print('*'*100 )
+            print("Loss based Perturbation")
+            start_time = time.time()
+            I = 10
+            g = 10
+            precision, recall, fscore, auc = run_loss_based_perturbation_experiment(change_unit, model_name)
+            end_time = time.time()
+            time_needed = round( (end_time - start_time) / 60, 5)
+            if(auc <= 0.5):
+                return precision, recall, fscore, auc, time_needed, change_unit
+        return precision, recall, fscore, auc, time_needed, change_unit
+    except Exception as exc:
+        logger.error(f"call_loss({model_name}) FAILURE {exc}")
+        raise exc
 def call_prob(I, g, model_name):
-    for change_percentage in range(0,90,10):
-        change_unit = change_percentage/100
-        print("Change: ", change_unit)  
-        print('*'*100 )
-        print("Probability based Perturbation")
-        start_time = time.time()
-        I = 10
-        g = 10
-        precision, recall, fscore, auc = run_prob_based_perturbation_experiment(change_unit, I, g, model_name)
-        end_time = time.time()
-        time_needed = round( (end_time - start_time) / 60, 5)
-        if(auc <= 0.5):
-            return precision, recall, fscore, auc, time_needed, change_unit
-    return precision, recall, fscore, auc, time_needed, change_unit
-    
+    logger.info(f"call_prob({I}, {g}, {model_name})")
+    try:
+        for change_percentage in range(0,90,10):
+            change_unit = change_percentage/100
+            print("Change: ", change_unit)
+            print('*'*100 )
+            print("Probability based Perturbation")
+            start_time = time.time()
+            I = 10
+            g = 10
+            precision, recall, fscore, auc = run_prob_based_perturbation_experiment(change_unit, I, g, model_name)
+            end_time = time.time()
+            time_needed = round( (end_time - start_time) / 60, 5)
+            if(auc <= 0.5):
+                return precision, recall, fscore, auc, time_needed, change_unit
+        return precision, recall, fscore, auc, time_needed, change_unit
+    except Exception as exc:
+        logger.error(f"call_prob({I}, {g}, {model_name}) FAILURE {exc}")
+        raise exc
 def calculate_stat(baseline_data, experiment_data):
     try:
         TS, p = stats.mannwhitneyu(list(experiment_data), list(baseline_data), alternative='less')
