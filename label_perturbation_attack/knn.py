@@ -12,7 +12,13 @@ from matplotlib import pyplot as plt
 
 
 def euc_dist(x1, x2):
-    return np.sqrt(np.sum((x1-x2)**2))
+    logger.info(f"euc_dist({x1}, {x2})")
+    try:
+        return np.sqrt(np.sum((x1-x2)**2))
+    except Exception as exc:
+        logger.error(f"euc_dist({x1}, {x2}) FAILURE {exc}")
+        raise exc
+        
         
 
 def predict(self, X_test):
@@ -24,20 +30,26 @@ def predict(self, X_test):
     Return the predicted class
     """
 
-    predictions = [] 
-    for i in range(len(X_test)):
-        dist = np.array([euc_dist(X_test[i], x_t) for x_t in self.X_train])
-        dist_sorted = dist.argsort()[:self.K]
-        neigh_count = {}
-        for idx in dist_sorted:
-            if self.Y_train[idx] in neigh_count:
-                neigh_count[self.Y_train[idx]] += 1
-            else:
-                neigh_count[self.Y_train[idx]] = 1
-        sorted_neigh_count = sorted(neigh_count.items(),    
-        key=operator.itemgetter(1), reverse=True)
-        predictions.append(sorted_neigh_count[0][0]) 
-    return predictions
+   logger.info(f"predict({self}, {X_test})")
+
+    try:
+        predictions = []
+        for i in range(len(X_test)):
+            dist = np.array([euc_dist(X_test[i], x_t) for x_t in self.X_train])
+            dist_sorted = dist.argsort()[:self.K]
+            neigh_count = {}
+            for idx in dist_sorted:
+                if self.Y_train[idx] in neigh_count:
+                    neigh_count[self.Y_train[idx]] += 1
+                else:
+                    neigh_count[self.Y_train[idx]] = 1
+            sorted_neigh_count = sorted(neigh_count.items(),
+            key=operator.itemgetter(1), reverse=True)
+            predictions.append(sorted_neigh_count[0][0])
+        return predictions
+    except Exception as exc:
+        logger.error(f"predict({self}, {X_test}) FAILURE {exc}")
+        raise exc
     
 def prepare_data():
 #     mnist = load_digits()
