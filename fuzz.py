@@ -36,7 +36,7 @@ if __name__ == "__main__":
                 (0.0, 0.0),
                 (None, 'ht.lm')
             ]
-        )
+        ),
         (
             generateAttack, [
                 (None, None),
